@@ -63,11 +63,11 @@ void CochlearModel_1D::solve_time_domain(vector<double> vec_f, vector<vector<dou
         vec_mwx[kx-1] = -4*(sin(ax)*sin(ax))/dx2;
     }
     
-    plan_forward = fftw_plan_r2r_1d(N, vec_k.data(), vec_khat.data(), FFTW_REDFT01, FFTW_EXHAUSTIVE);
-    plan1_inverse = fftw_plan_r2r_1d(N, vec_phat.data(), vec_p1.data(), FFTW_REDFT10, FFTW_EXHAUSTIVE);
-    plan2_inverse = fftw_plan_r2r_1d(N, vec_phat.data(), vec_p2.data(), FFTW_REDFT10, FFTW_EXHAUSTIVE);
-    plan3_inverse = fftw_plan_r2r_1d(N, vec_phat.data(), vec_p3.data(), FFTW_REDFT10, FFTW_EXHAUSTIVE);
-    plan4_inverse = fftw_plan_r2r_1d(N, vec_phat.data(), vec_p4.data(), FFTW_REDFT10, FFTW_EXHAUSTIVE);
+    plan_forward = fftw_plan_r2r_1d(N, vec_k.data(), vec_khat.data(), FFTW_REDFT01, FFTW_ESTIMATE);
+    plan1_inverse = fftw_plan_r2r_1d(N, vec_phat.data(), vec_p1.data(), FFTW_REDFT10, FFTW_ESTIMATE);
+    plan2_inverse = fftw_plan_r2r_1d(N, vec_phat.data(), vec_p2.data(), FFTW_REDFT10, FFTW_ESTIMATE);
+    plan3_inverse = fftw_plan_r2r_1d(N, vec_phat.data(), vec_p3.data(), FFTW_REDFT10, FFTW_ESTIMATE);
+    plan4_inverse = fftw_plan_r2r_1d(N, vec_phat.data(), vec_p4.data(), FFTW_REDFT10, FFTW_ESTIMATE);
     gettimeofday(&tv_start, NULL);
 
     for (int ii = 0; ii < num_time-1; ii++){
