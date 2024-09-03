@@ -96,6 +96,7 @@ if __name__ == "__main__":
         plt.title('%s model'%(mode),fontsize=16)
         plt.xticks(fontsize=16)
         plt.yticks(fontsize=16)
+        plt.savefig('%s.pdf'%(mode))
     plt.show()
 
     # calc tip-frequency
